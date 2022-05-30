@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Transactional
+
 @Service
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
@@ -29,10 +29,13 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll();
     }
     @Override
+    @Transactional
     public User saveUser(User user){
         return userRepository.save(user);
     }
+    
     @Override
+    @Transactional
     public void deleteById(Long id){
         userRepository.deleteById(id);
     }
