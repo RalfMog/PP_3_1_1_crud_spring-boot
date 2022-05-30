@@ -10,11 +10,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-
 public class Application {
 
-    @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    public Application(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -31,3 +34,4 @@ public class Application {
         };
     }
 }
+
